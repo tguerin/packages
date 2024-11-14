@@ -130,6 +130,7 @@ SvgTheme _parseTheme(ArgResults results) {
 }
 
 Future<void> main(List<String> args) async {
+  stderr.writeln('Test.');
   final ArgResults results;
   try {
     results = argParser.parse(args);
@@ -160,7 +161,7 @@ Future<void> main(List<String> args) async {
         final Directory outDir = Directory(results['out-dir'] as String);
         //to add the output dirctory if it exist
         if (!outDir.existsSync()) {
-          outDir.createSync();
+          outDir.createSync(recursive: true);
         }
         outputPath = p.join(outDir.path, '${p.basename(file.path)}.vec');
       }
