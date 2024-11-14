@@ -141,6 +141,7 @@ Future<void> main(List<String> args) async {
   }
   validateOptions(results);
 
+  stderr.writeln('Test3.');
   final List<Pair> pairs = <Pair>[];
   if (results.wasParsed('input-dir')) {
     final Directory directory = Directory(results['input-dir'] as String);
